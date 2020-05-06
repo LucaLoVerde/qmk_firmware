@@ -1,6 +1,10 @@
 #include "keymap.h"
-// #include "quantum.h"
-// extern keymap_config_t keymap_config;
+// these are probably unnecessary but worth of trying to fix IntelliCode struggles
+#include "quantum.h"
+#include "rgblight_list.h"
+#include "rgb_matrix_types.h"
+#include "process_tap_dance.h"
+extern keymap_config_t keymap_config;
 
 // derived from https://github.com/qmk/qmk_firmware/tree/master/keyboards/massdrop/ctrl/keymaps/endgame
 // my own take at a custom keymap for drop ctrl while learning QMK
@@ -213,6 +217,7 @@ void matrix_init_user(void) {
 };
 
 void keyboard_post_init_user(void) {
+    // change brightness and hue of the current RGB mode (don't know how to do this directly without steps)
     for (int i = 0; i < 7; i++) {
         rgblight_decrease_val();
     }
