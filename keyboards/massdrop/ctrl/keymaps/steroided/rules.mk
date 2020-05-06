@@ -1,4 +1,4 @@
-# RGBLIGHT_ENABLE = no				# Not for MD boards. This is here in case you forget.
+RGBLIGHT_ENABLE = custom				# Not for MD boards. This is here in case you forget.
 COMMAND_ENABLE = yes				# Commands for debug and configuration
 # BOOTMAGIC_ENABLE = full			# Virtual DIP switch configuration
 # BOOTMAGIC_ENABLE = lite

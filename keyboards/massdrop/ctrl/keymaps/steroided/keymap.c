@@ -1,4 +1,6 @@
 #include "keymap.h"
+// #include "quantum.h"
+// extern keymap_config_t keymap_config;
 
 // derived from https://github.com/qmk/qmk_firmware/tree/master/keyboards/massdrop/ctrl/keymaps/endgame
 // my own take at a custom keymap for drop ctrl while learning QMK
@@ -211,6 +213,14 @@ void matrix_init_user(void) {
 };
 
 void keyboard_post_init_user(void) {
+    for (int i = 0; i < 7; i++) {
+        rgblight_decrease_val();
+    }
+    for (int i = 0; i < 40; i++) {
+        rgblight_increase_hue();
+    }
+    // rgblight_step();
+    // rgb_matrix_sethsv(154, 88, 53);
     rgb_matrix_enable();
 }
 
