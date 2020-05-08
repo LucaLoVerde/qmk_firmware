@@ -1,4 +1,5 @@
-#include QMK_KEYBOARD_H
+// #include QMK_KEYBOARD_H
+#include "ctrl.h"
 
 #include <print.h>
 #include <string.h>
