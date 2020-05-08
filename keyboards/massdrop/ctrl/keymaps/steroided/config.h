@@ -119,3 +119,4 @@
 // #define DISABLE_RGB_MATRIX_SOLID_MULTISPLASH             // Hue & value pulse away from multiple key hits then fades value out
 
 // #define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_ALPHAS_MODS    // Sets the default mode, if none has been set
+
