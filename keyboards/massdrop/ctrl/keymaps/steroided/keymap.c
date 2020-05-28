@@ -119,14 +119,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LSFT: 63, Z: 64,    X: 65,    C: 66,    V: 67,    B: 68,    N: 69,    M: 70,    COMM: 71, DOT: 72,  SLSH: 73, RSFT: 74,                               UP: 75,
         LCTL: 76, LGUI: 77, LALT: 78,                   SPC: 79,                                  RALT: 80, Fn: 81,   APP: 82,  RCTL: 83,           LEFT: 84, DOWN: 85, RGHT: 86
     ),
-	[MATRIX] = LAYOUT(
-	    0,       1,       2,       3,       4,       5,       6,       7,       8,       9,       10,      11,      12,                 13,      14,      15,
-	    16,      17,      18,      19,      20,      21,      22,      23,      24,      25,      26,      27,      28,      29,        30,      31,      32,
-	    33,      34,      35,      36,      37,      38,      39,      40,      41,      42,      43,      44,      45,      46,        47,      48,      49,
-	    50,      51,      52,      53,      54,      55,      56,      57,      58,      59,      60,      61,      62,
-	    63,      64,      65,      66,      67,      68,      69,      70,      71,      72,      73,      74,                                   75,
-	    76,      77,      78,                        79,                                 80,      81,      82,      83,                 84,      85,      86
-	),
+    [MATRIX] = LAYOUT(
+        0,       1,       2,       3,       4,       5,       6,       7,       8,       9,       10,      11,      12,                 13,      14,      15,
+        16,      17,      18,      19,      20,      21,      22,      23,      24,      25,      26,      27,      28,      29,        30,      31,      32,
+        33,      34,      35,      36,      37,      38,      39,      40,      41,      42,      43,      44,      45,      46,        47,      48,      49,
+        50,      51,      52,      53,      54,      55,      56,      57,      58,      59,      60,      61,      62,
+        63,      64,      65,      66,      67,      68,      69,      70,      71,      72,      73,      74,                                   75,
+        76,      77,      78,                        79,                                 80,      81,      82,      83,                 84,      85,      86
+    ),
     */
     // "endgame" original maps
     //    [_KL] = LAYOUT(
@@ -198,6 +198,9 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 #define _______ KC_TRNS
 #endif
 
+// Pantone DarkOrange3 HSV definition for coffee house keyset light pattern
+#define DARKORANGE3 22, 255, 205
+
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void) {
     // Enable or disable debugging
@@ -216,17 +219,25 @@ void matrix_init_user(void) {
     rgb_time_out_saved_flag = rgb_matrix_get_flags();   // Save RGB matrix state for when keyboard comes back from ide.
 };
 
+#define RGB_MATRIX_SPD_STEP 1
 void keyboard_post_init_user(void) {
     // change brightness and hue of the current RGB mode (don't know how to do this directly without steps)
-    for (int i = 0; i < 7; i++) {
-        rgblight_decrease_val();
+    // for (int i = 0; i < 7; i++) {
+    //     rgblight_decrease_val();
+    // }
+    // for (int i = 0; i < 40; i++) {
+    //     rgblight_increase_hue();
+    // }
+    // current alpha_mods light/dark orange pattern for coffee house keyset
+    rgb_matrix_mode(RGB_MATRIX_ALPHAS_MODS);
+    rgb_matrix_sethsv(DARKORANGE3);
+    for (int i = 0; i < 25; i++) {
+        rgb_matrix_decrease_speed();
     }
-    for (int i = 0; i < 40; i++) {
-        rgblight_increase_hue();
+    for (int i = 0; i < 15; i++) {
+        rgb_matrix_increase_speed();
     }
-    // rgblight_step();
-    // rgb_matrix_sethsv(154, 88, 53);
-    rgb_matrix_enable();
+    // rgb_matrix_enable();
 }
 
 // Runs constantly in the background, in a loop.
