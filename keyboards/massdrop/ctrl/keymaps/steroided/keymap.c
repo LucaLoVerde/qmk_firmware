@@ -10,6 +10,9 @@ extern keymap_config_t keymap_config;
 // my own take at a custom keymap for drop ctrl while learning QMK
 // Luca Lo Verde 2020 05 02
 
+// Pantone DarkOrange3 HSV definition for coffee house keyset light pattern
+#define DARKORANGE3 22, 255, 205
+
 static uint16_t idle_timer;             // Idle LED timeout timer
 static uint8_t idle_second_counter;     // Idle LED seconds counter, counts seconds not milliseconds
 static uint8_t key_event_counter;       // This counter is used to check if any keys are being held
@@ -197,9 +200,6 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 #undef _______
 #define _______ KC_TRNS
 #endif
-
-// Pantone DarkOrange3 HSV definition for coffee house keyset light pattern
-#define DARKORANGE3 22, 255, 205
 
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void) {
