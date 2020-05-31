@@ -219,28 +219,21 @@ void matrix_init_user(void) {
     rgb_time_out_saved_flag = rgb_matrix_get_flags();   // Save RGB matrix state for when keyboard comes back from ide.
 };
 
-#define RGB_MATRIX_SPD_STEP 1
 void keyboard_post_init_user(void) {
     // change brightness and hue of the current RGB mode (don't know how to do this directly without steps)
-    // for (int i = 0; i < 7; i++) {
-    //     rgblight_decrease_val();
-    // }
-    // for (int i = 0; i < 40; i++) {
-    //     rgblight_increase_hue();
-    // }
     // current alpha_mods light/dark orange pattern for coffee house keyset
     rgb_matrix_mode(RGB_MATRIX_ALPHAS_MODS);  // RGB_MATRIX_ALPHAS_MODS is #2 on the "rgb_matrix_effects" enums but VSCode cannot find the definition.
     rgb_matrix_sethsv(DARKORANGE3);
-    for (int i = 0; i < 25; i++) {
+    // rgb_matrix_sethsv(RGB_AZURE);
+    // for (int i = 0; i < 25; i++) {
+    //     rgb_matrix_decrease_speed();
+    // }
+    for (int i = 0; i < 3; i++) {
         rgb_matrix_decrease_speed();
     }
-    for (int i = 0; i < 15; i++) {
-        rgb_matrix_increase_speed();
-    }
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 7; i++) {
         rgb_matrix_decrease_val();
     }
-
     // rgb_matrix_enable();
 }
 
