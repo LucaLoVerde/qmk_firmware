@@ -222,15 +222,16 @@ void matrix_init_user(void) {
 void keyboard_post_init_user(void) {
     // change brightness and hue of the current RGB mode (don't know how to do this directly without steps)
     // current alpha_mods light/dark orange pattern for coffee house keyset
-    rgb_matrix_mode(RGB_MATRIX_ALPHAS_MODS);  // RGB_MATRIX_ALPHAS_MODS is #2 on the "rgb_matrix_effects" enums but VSCode cannot find the definition.
-    rgb_matrix_sethsv(DARKORANGE3);
+    // rgb_matrix_mode(RGB_MATRIX_ALPHAS_MODS);  // RGB_MATRIX_ALPHAS_MODS is #2 on the "rgb_matrix_effects" enums but VSCode cannot find the definition.
+    // rgb_matrix_sethsv(DARKORANGE3);
+    rgb_matrix_mode(RGB_MATRIX_TYPING_HEATMAP);
     // rgb_matrix_sethsv(RGB_AZURE);
     // for (int i = 0; i < 25; i++) {
     //     rgb_matrix_decrease_speed();
     // }
-    for (int i = 0; i < 3; i++) {
-        rgb_matrix_decrease_speed();
-    }
+    // for (int i = 0; i < 3; i++) {
+    //     rgb_matrix_decrease_speed();
+    // }
     for (int i = 0; i < 7; i++) {
         rgb_matrix_decrease_val();
     }
